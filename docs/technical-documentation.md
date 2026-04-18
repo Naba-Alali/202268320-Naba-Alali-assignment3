@@ -2,9 +2,9 @@
 
 ## 1. Project Overview
 
-This project is an interactive personal portfolio website developed using HTML, CSS, and JavaScript. It is an improved version of Assignment 1 with added interactivity and better user experience.
+This project is an interactive personal portfolio website developed using HTML, CSS, and JavaScript. It is an improved version of Assignment 2 with added advanced features, including API integration, more complex logic, and better user interaction.
 
-The website includes sections for About, Projects, and Contact, and allows users to interact with features such as filtering projects, switching themes, and submitting a form.
+The website includes sections for About, Quotes, Projects, and Contact, and allows users to interact with dynamic features such as filtering projects, generating quotes, tracking time spent on the website, and submitting a contact form.
 
 ---
 
@@ -14,9 +14,10 @@ HTML was used to structure the content of the website using semantic elements su
 
 CSS was used for styling, layout, and responsiveness. CSS Grid and Flexbox were used to create structured layouts. CSS variables were used to manage light and dark themes.
 
-JavaScript was used to add interactivity, including theme switching, project filtering, modal functionality, and form validation.
+JavaScript was used to add interactivity, including theme switching, project filtering, API integration, modal functionality, form validation, and timer logic.
 
 Git and GitHub were used for version control and managing the project files.
+
 
 ---
 
@@ -29,7 +30,7 @@ The project is organized as follows:
 - js/script.js → interactivity and functionality  
 - assets/images → images used in the project  
 - docs → documentation files  
-- README.md → project overview  
+- README.md → project overview   
 
 This structure helps keep the project clean and organized.
 
@@ -41,24 +42,52 @@ This structure helps keep the project clean and organized.
 
 The project includes a filtering system in the Projects section. Users can click buttons (All, Web Apps, UI/UX) to show or hide projects dynamically.
 
-### 4.2 Data Handling
-
-The theme toggle uses localStorage to save user preference. When the user selects light or dark mode, the choice is saved and applied when the page reloads.
-
-The contact form also handles user input and validates it before submission.
+It also includes a quote generator that displays a new quote when the user clicks a button.
 
 ---
 
-### 4.3 Interactivity
+### 4.2 API Integration
+
+The project integrates an external API to fetch random quotes. The data is retrieved using JavaScript and displayed dynamically on the webpage.
+
+The application shows a loading message while fetching data and displays a user-friendly error message if the API fails.
+
+---
+### 4.3 Complex Logic
+
+The project includes additional logic beyond simple interactions:
+
+- Project filtering based on category  
+- Visitor timer that updates every second  
+- Conditional display of time in seconds and minutes  
+
+This demonstrates multi-step logic and real-time updates.
+
+---
+
+### 4.4 State Management
+
+The project uses localStorage to store user preferences:
+
+- Theme selection (light/dark mode) is saved and restored on reload  
+- Selected project filter is saved and applied when the page reloads  
+
+This ensures a consistent user experience.
+
+---
+
+### 4.5 Interactivity
 
 - Theme toggle button switches between light and dark mode  
 - Modal window shows project details when clicking “Details”  
+- Quote generator updates content dynamically  
+- Visitor timer updates in real time  
 - Back-to-top button appears when scrolling  
 - Greeting message changes based on time of day  
 
 ---
 
-### 4.4 Form Validation
+### 4.6 Form Validation
 
 The contact form checks:
 
@@ -71,13 +100,15 @@ If valid, a success message appears after a short delay.
 
 ---
 
-### 4.5 Animations and Transitions
+### 4.7 Animations and Transitions
 
 - Hover effects on buttons and navigation links  
 - Card hover animation with movement and glow effect  
 - Smooth transitions for better user experience  
+- Image zoom effect on project cards  
 
 ---
+
 
 ## 5. Responsive Design
 
@@ -105,9 +136,11 @@ The layout was tested by resizing the browser and using developer tools.
 The project was tested to ensure:
 
 - All features work correctly  
-- Filtering works properly  
+- Project filtering works and saves state  
+- Quote API loads correctly and handles errors  
 - Modal opens and closes  
 - Form validation works  
+- Visitor timer updates correctly  
 - No console errors appear  
 - Layout does not break on smaller screens  
 
@@ -115,11 +148,13 @@ The project was tested to ensure:
 
 ## 8. Performance
 
-The website is lightweight because:
+The website is optimized for performance:
 
-- No external frameworks are used  
-- Files are organized and optimized  
-- Images are stored locally  
+- Images are stored locally and properly sized  
+- Unused code was removed  
+- CSS and JavaScript are organized and efficient  
+- No unnecessary libraries are used  
+ 
 
 ---
 
@@ -127,14 +162,14 @@ The website is lightweight because:
 
 Through this project, I learned:
 
-- How to add interactive features using JavaScript  
-- How to improve user experience with dynamic behavior  
-- How to use localStorage  
-- How to design responsive layouts  
-- How to organize code and documentation  
+- How to integrate external APIs into a web application  
+- How to implement more complex JavaScript logic  
+- How to manage application state using localStorage  
+- How to improve performance by cleaning unused code  
+- How to enhance user experience with interactive features  
 
 ---
 
 ## 10. Conclusion
 
-This project demonstrates improvement from Assignment 1 by adding interactivity and better user experience. It shows my understanding of front-end development and prepares me for building more advanced web applications in the future.
+This project demonstrates clear improvement from previous assignments by adding advanced functionality and improving user interaction. It shows my ability to work with APIs, manage state, and build more complex front-end features, preparing me for more advanced web development projects in the future.

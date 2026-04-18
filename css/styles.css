@@ -98,20 +98,7 @@ body{
   margin-bottom: 15px;
 }
 
-h1{
-  margin: 0 0 10px;
-  font-size: clamp(28px, 4vw, 44px);
-  line-height: 1.15;
-}
 
-
-
-.hero-actions{
-  display: flex;
-  gap: 10px;
-  margin-top: 16px;
-  flex-wrap: wrap;
-}
 
 /* ====== Sections ====== */
 .section{ padding: 40px 0; }
@@ -136,10 +123,6 @@ h2{
   box-shadow: 0 4px 12px rgba(0,0,0,0.04);
   transition: transform 0.3s ease;
 }
-
-
-
-
 
 
 
@@ -218,19 +201,9 @@ h2{
 
 
 
-
-
 .project-card:hover .project-image {
   transform: scale(1.05);
 }
-
-.project-image {
-  transition: transform 0.4s ease;
-}
-
-
-
-
 
 .project-image-box {
   padding: 18px 18px 0 18px;
@@ -242,6 +215,7 @@ h2{
   object-fit: cover;
   border-radius: 16px;
   display: block;
+  transition: transform 0.4s ease;
 }
 
 .project-content {
@@ -414,6 +388,30 @@ font-weight: 500; }
     font-size: 14px;
     padding: 12px 16px;
   }
+  .about-heading{
+    font-size: 38px;
+  }
+
+  .about-name{
+    font-size: 34px;
+  }
+
+  .about-text{
+    font-size: 18px;
+    line-height: 1.7;
+  }
+
+  .about-badge{
+    font-size: 15px;
+    padding: 10px 16px;
+  }
+  .quotes-title{
+    font-size: 36px;
+  }
+
+  #quoteText{
+    font-size: 20px;
+  }
 }
 
 /* Fix for Mobile Header */
@@ -478,18 +476,6 @@ font-weight: 500; }
 
 .card:hover{
   transform: translateY(-5px);
-}
-
-
-
-
-.nav-links a{
-  text-decoration: none;
-  color: var(--text);
-  opacity: 0.9;
-  position: relative;
-  padding-bottom: 4px;
-  transition: 0.3s ease;
 }
 
 .nav-links a::after{
@@ -588,25 +574,7 @@ font-weight: 500; }
   font-size: 16px;
 }
 
-@media (max-width: 700px){
-  .about-heading{
-    font-size: 38px;
-  }
 
-  .about-name{
-    font-size: 34px;
-  }
-
-  .about-text{
-    font-size: 18px;
-    line-height: 1.7;
-  }
-
-  .about-badge{
-    font-size: 15px;
-    padding: 10px 16px;
-  }
-}
 .about-info{
   margin-top: 20px;
   color: var(--muted);
@@ -647,4 +615,63 @@ font-weight: 500; }
 }
 #contact .form{
   margin: 0 auto;
+}
+
+
+
+/* Quets style */
+
+.quote-section{
+  text-align: center;
+}
+
+.quotes-title{
+  font-size: 48px;
+  margin-bottom: 10px;
+}
+
+.quotes-subtitle{
+  color: var(--muted);
+  margin-bottom: 24px;
+}
+
+.quote-card{
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 30px 24px;
+  text-align: center;
+}
+
+#quoteText{
+  font-size: 24px;
+  line-height: 1.8;
+  margin-bottom: 14px;
+  color: var(--text);
+}
+
+#quoteAuthor{
+  color: var(--accent);
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.quote-actions{
+  display: flex;
+  justify-content: center;
+}
+
+
+
+
+/* Align greeting + timer side by side */
+.top-info{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.timer-pill{
+  font-weight: 600;
+  border-color: var(--accent);
+  color: var(--accent);
 }

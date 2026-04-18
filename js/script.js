@@ -22,10 +22,13 @@ document.getElementById("year").textContent = new Date().getFullYear();
 document.getElementById("greeting").textContent = getGreeting();
 
 // Toggle theme when user clicks theme button
-document.getElementById("themeBtn").addEventListener("click", () => {
-  const current = document.documentElement.getAttribute("data-theme");
-  setTheme(current === "light" ? "dark" : "light");
-});
+const themeBtn = document.getElementById("themeBtn");
+if (themeBtn) {
+  themeBtn.addEventListener("click", () => {
+    const current = document.documentElement.getAttribute("data-theme");
+    setTheme(current === "light" ? "dark" : "light");
+  });
+}
 
 // Opens modal and dynamically updates content based on selected project
 function showProject(projectName) {
@@ -92,6 +95,7 @@ function clearErrors() {
 }
 
 // Contact form validation (client-side only, no backend)
+
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   clearErrors();
@@ -137,35 +141,111 @@ form.addEventListener("submit", (e) => {
 
 // ===== Scroll to top button =====
 const toTopBtn = document.getElementById("toTop");
-window.addEventListener("scroll", () => {
-  toTopBtn.style.display = window.scrollY > 300 ? "block" : "none";
-});
+if (toTopBtn) {
+  window.addEventListener("scroll", () => {
+    toTopBtn.style.display = window.scrollY > 300 ? "block" : "none";
+  });
 
-toTopBtn.addEventListener("click", () => {
-  window.scrollTo({ top: 0, behavior: "smooth" });
-});
+  toTopBtn.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+}
 
 
+
+// ======= Filter ==========
 const filterButtons = document.querySelectorAll(".filter-btn");
 const projectCards = document.querySelectorAll(".project-card");
 
+function applyFilter(filter) {
+  filterButtons.forEach((btn) => {
+    btn.classList.toggle("active", btn.getAttribute("data-filter") === filter);
+  });
+
+  projectCards.forEach((card) => {
+    const category = card.getAttribute("data-category");
+    card.style.display = (filter === "all" || category === filter) ? "" : "none";
+  });
+}
+
 filterButtons.forEach((button) => {
   button.addEventListener("click", () => {
-    const filter = button.dataset.filter;
-
-    // update active button
-    filterButtons.forEach((btn) => btn.classList.remove("active"));
-    button.classList.add("active");
-
-    // show/hide projects
-    projectCards.forEach((card) => {
-      const category = card.dataset.category;
-
-      if (filter === "all" || category === filter) {
-        card.style.display = "block";
-      } else {
-        card.style.display = "none";
-      }
-    });
+    const filter = button.getAttribute("data-filter");
+    localStorage.setItem("selectedFilter", filter);
+    applyFilter(filter);
   });
 });
+
+const savedFilter = localStorage.getItem("selectedFilter");
+if (savedFilter) {
+  applyFilter(savedFilter);
+}
+
+
+
+
+// ===== Quote API =====
+const quoteText = document.getElementById("quoteText");
+const quoteAuthor = document.getElementById("quoteAuthor");
+const quoteStatus = document.getElementById("quoteStatus");
+const newQuoteBtn = document.getElementById("newQuoteBtn");
+
+
+async function fetchQuote() {
+  try {
+    quoteStatus.textContent = "Loading quote...";
+    quoteText.textContent = "";
+    quoteAuthor.textContent = "";
+
+    const response = await fetch("https://dummyjson.com/quotes/random");
+
+    if (!response.ok) {
+      throw new Error("Failed to fetch quote.");
+    }
+
+    const data = await response.json();
+
+    quoteText.textContent = `"${data.quote}"`;
+    quoteAuthor.textContent = `— ${data.author}`;
+    quoteStatus.textContent = "";
+  } catch (error) {
+    quoteText.textContent = "Sorry, the quote could not be loaded right now.";
+    quoteAuthor.textContent = "";
+    quoteStatus.textContent = "Please try again later.";
+    console.error(error);
+  }
+}
+
+if (newQuoteBtn) {
+  newQuoteBtn.addEventListener("click", fetchQuote);
+}
+fetchQuote();
+
+
+
+
+
+/// ===== Visitor Timer =====
+const visitTimer = document.getElementById("visitTimer");
+
+let seconds = 0;
+
+if (visitTimer) {
+  setInterval(() => {
+    seconds++;
+
+    let text = "";
+
+    if (seconds === 1) {
+      text = `${seconds} second`;
+    } else if (seconds < 60) {
+      text = `${seconds} seconds`;
+    } else {
+      const minutes = Math.floor(seconds / 60);
+      const remaining = seconds % 60;
+      text = `${minutes} ${minutes === 1 ? "minute" : "minutes"} ${remaining} sec`;
+    }
+
+    visitTimer.textContent = `You have been here for ${text}`;
+  }, 1000);
+}

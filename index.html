@@ -31,7 +31,10 @@
     <div class="container about-box">
 
       <!-- Dynamic greeting text updated by JavaScript -->
-      <p id="greeting" class="pill">Hello!</p>
+      <div class="top-info">
+        <p id="greeting" class="pill">Hello!</p>
+        <p id="visitTimer" class="pill timer-pill">0 sec</p>
+      </div>
 
       <h2 class="about-heading">About Me</h2>
       <h3 class="about-name">Naba Alali</h3>
@@ -72,6 +75,25 @@
     </div>
   </section>
 
+<!-- Quets section -->
+<section id="quotes" class="section">
+  <div class="container quote-section">
+    <h2 class="quotes-title">Quote of the Moment</h2>
+    <p class="quotes-subtitle">A little inspiration while exploring my portfolio.</p>
+
+    <div class="card quote-card">
+      <p id="quoteText">Click the button to generate a quote.</p>
+      <p id="quoteAuthor"></p>
+
+      <div class="quote-actions">
+        <button id="newQuoteBtn" class="btn" type="button">Generate Quote</button>
+      </div>
+
+      <p id="quoteStatus" class="status" aria-live="polite"></p>
+    </div>
+  </div>
+</section>
+
   <!-- Projects section with filter buttons and project cards -->
   <section id="projects" class="section alt">
     <div class="container projects-section">
@@ -91,7 +113,7 @@
         <!-- Project card: category is used by filter logic in JavaScript -->
         <article class="project-card" data-category="web">
           <div class="project-image-box">
-            <img src="assets/images/Screenshot 2026-02-14 172033.png" alt="Horse App project screenshot" class="project-image">
+            <img src="assets/images/Horse-App.png" alt="Horse App project screenshot" class="project-image">
           </div>
 
           <div class="project-content">
@@ -115,7 +137,7 @@
         <!-- Second project card -->
         <article class="project-card" data-category="uiux">
           <div class="project-image-box">
-            <img src="assets/images/Screenshot 2026-02-14 232745.png" alt="Club Zone project screenshot" class="project-image">
+            <img src="assets/images/Club-Zone.png" alt="Club Zone project screenshot" class="project-image">
           </div>
 
           <div class="project-content">
